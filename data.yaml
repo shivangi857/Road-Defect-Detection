@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['Cracks', 'Potholes']
+
+roboflow:
+  workspace: stuti
+  project: road-defect-detection-2zice
+  version: 16
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/stuti/road-defect-detection-2zice/dataset/16
