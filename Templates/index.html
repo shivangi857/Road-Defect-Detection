@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image/Video</title>
+    <style>
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            animation: slideBackground 15s infinite linear;
+        }
+
+        
+        .upload-container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+        }
+
+        
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        input {
+            background: white;
+        }
+
+        
+        button {
+            background: #ff7eb3;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4d8e;
+        }
+
+        
+        .preview-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        img, video {
+            max-width: 40%;
+            max-height: 50%;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        @keyframes slideBackground {
+            0% { background-image: url('/static/images/p1.avif'); }
+            25% { background-image: url('/static/images/p2.avif'); }
+            50% { background-image: url('/static/images/p3.avif'); }
+            75% { background-image: url('/static/images/p4.avif'); }
+            100% { background-image: url('/static/images/p5.avif'); }
+        }
+   </style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="upload-container">
+    <h2>Upload or Enter URL</h2>
+    <input type="file" id="fileInput" accept="image/*,video/*" onchange="previewFile()">
+    <p>OR</p>
+    <input type="text" id="urlInput" placeholder="Enter Image/Video URL">
+    <button onclick="previewURL()">Preview</button>
+
+    <div class="preview-container" id="previewSection"></div>
+    
+    <button onclick="sendToFlask()">Submit</button>
+    <div id="resultSection"></div>
+</div>
+
+<script src="/static/js/script.js"></script>
+
+</body>
+</html>

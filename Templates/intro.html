@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROAD DEFECT DETECTION SYSTEM</title>
+  <link rel="icon" type="image/png" href="/static/images/LOGOROAD.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1c84b859, #414345);
+      color: #ffffff;
+      text-align: center;
+      overflow: hidden;
+    }
+    .intro-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    .intro-container h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffcc00;
+      text-transform: uppercase;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .intro-container p {
+      font-size: 2rem;
+      margin-top: 10px;
+      max-width: 600px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .btn-start {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #000;
+      background: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      animation: fadeIn 2.5s ease-in-out;
+      
+    }
+   
+    .btn-start:hover {
+      background: #ffaa00;
+      transform: scale(1.1);
+      
+    }
+    .road-animation {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background: url('https://i.imgur.com/3Z3KZL7.png') repeat-x;
+      background-size: contain;
+      animation: roadMove 5s linear infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes roadMove {
+      from { background-position: 0 0; }
+      to { background-position: -100% 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-container">
+    <h1>Smart Roads, Safer Journeys</h1>
+    
+    <p>AI-powered road defect detection for improved safety and smoother rides.</p>
+    <nav>
+      <button class="btn-start" ><a href="/about" style="text-decoration: none">About </a></button>
+    <button class="btn-start" ><a href="/team"  style="text-decoration: none"> Team </a></button>
+    <button class="btn-start" ><a href="/start"  style="text-decoration: none"> Get Started</a></button>
+    </nav>
+    
+
+    <div class="road-animation"></div>
+  </div>
+</body>
+</html>

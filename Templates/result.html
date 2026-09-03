@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #4768a0);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .result-container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .image-container img {
+            max-width: 60%;
+            border-radius: 10px;
+        }
+
+        .prediction-box {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .prediction-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .prediction-box li {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #0a74da;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background: #084a9a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-container">
+        <h1>YOLO Prediction Results</h1>
+
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='processed/output.jpg') }}" alt="Processed Image">
+        </div>
+
+        <div class="prediction-box">
+            <h2>Detected Objects:</h2>
+            <ul>
+                {% for pred in predictions %}
+                    <li><b>{{ pred.class }}</b> (Confidence: {{ pred.confidence }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/" class="back-button">Go Back</a>
+    </div>
+
+</body>
+</html>
